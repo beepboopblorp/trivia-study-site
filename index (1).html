@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Study Site</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id="prestart">
+    <h1>Study Site</h1>
+    <p> Choose Topic: </p>
+    <button class = "topicselect" value="statenumbers"> State Numbers </button>
+    <button class="topicselect" value="sciencebranches"> Branches of Science </button>
+    <button class="topicselect" value="vitamins"> Vitamins </button>
+    <button class="topicselect" value="heraldry"> Heraldry Colors </button>
+    <button class="topicselect" value="statethings"> State Things </button>
+    <button class="topicselect" value="keys"> Key Signatures </button>
+    <button class="topicselect" value="alloys"> Alloys </button>
+    <button class="topicselect" value="schemes"> Color Schemes </button>
+    <button class="topicselect" value="pqbank"> Past Question Bank </button>
+    <br>
+    <div id="choosetype">
+      <p> Choose Question Type: </p>
+      <button class="typechoose" value="MCQ"> Multiple Choice </button>
+      <button class="typechoose" value="SAQ"> Free Answer </button>
+    </div>
+    <br><br>
+    <button id="start"> Start </button>
+  </div>
+  <div id="questionthings">
+    <h2 id="qask"></h2>
+    <div id="MC">
+      <button id="answer1"></button>
+      <button id="answer2"></button>
+      <button id="answer3"></button>
+      <button id="answer4"></button>
+    </div>
+    <div id="SA">
+      <input id="saqans" type="text">
+      <button id="check"> Check </button>
+      <p id="statecorrect"></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

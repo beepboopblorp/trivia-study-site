@@ -1,0 +1,54 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+    background-color: black;
+    text-align: center;
+    font-family: "Courier New";
+}
+
+h1 {
+    color: rebeccapurple;
+}
+
+h2 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+button {
+    background-color: rebeccapurple;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    font-family: "Courier New";
+}
+
+button:hover {
+    background-color: white;
+    color: rebeccapurple;
+}
+
+#choosetype {
+    display: none;
+}
+
+#questionthings {
+    display: none;
+}
+
+#start {
+    display: none;
+}
+
+#qask {
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
