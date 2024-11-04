@@ -36,19 +36,13 @@ button:hover {
     color: rebeccapurple;
 }
 
-#choosetype {
-    display: none;
-}
-
-#questionthings {
-    display: none;
-}
-
-#start {
+#choosetype, #endchoose, #questionthings, #start-random, #start-order, #endofgame {
     display: none;
 }
 
 #qask {
     margin-left: 2.5%;
     margin-right: 2.5%;
+    margin-top: 5%;
+    margin-bottom: 2.5%;
 }

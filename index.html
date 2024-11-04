@@ -13,7 +13,7 @@
     <h1>Study Site</h1>
     <p> Choose Topic: </p>
     <button class = "topicselect" value="statenumbers"> State Numbers </button>
-    <button class="topicselect" value="sciencebranches"> Branches of Science </button>
+    <button class = "topicselect" value="statedates"> State Dates </button>
     <button class="topicselect" value="vitamins"> Vitamins </button>
     <button class="topicselect" value="heraldry"> Heraldry Colors </button>
     <button class="topicselect" value="statethings"> State Things </button>
@@ -28,10 +28,18 @@
       <button class="typechoose" value="SAQ"> Free Answer </button>
     </div>
     <br><br>
-    <button id="start"> Start </button>
+    <div id="endchoose">
+      <p> Choose Question Type: </p>
+      <button class="chooseend" value="random"> Unending </button>
+      <button class="chooseend" value="order"> Ending </button>
+    </div>
+    <br><br>
+    <button id="start-random"> Start </button>
+    <button id="start-order"> Start </button>
   </div>
   <div id="questionthings">
     <h2 id="qask"></h2>
+    <button id="showoptions">Show Answer Choices</button> <br>
     <div id="MC">
       <button id="answer1"></button>
       <button id="answer2"></button>
@@ -39,10 +47,14 @@
       <button id="answer4"></button>
     </div>
     <div id="SA">
-      <input id="saqans" type="text">
+      <input id="saqans" type="text" spellcheck="false">
       <button id="check"> Check </button>
       <p id="statecorrect"></p>
     </div>
+  </div>
+  <div id="endofgame">
+    <p>You have completed all questions from this set! Click the return button to play again.</p>
+    <button id="returntostart">Return</button>
   </div>
   <script src="script.js"></script>
 </body>
