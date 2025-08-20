@@ -30,7 +30,7 @@ let formulas = [new info("final velocity squared", "(v0)^2 + 2aΔx"), new info("
 let pqbank = []; 
 let rownum, colnum;
 
-fetch("https://docs.google.com/spreadsheets/d/1oiQXvLxJO8WXE9OADI4Ss1_znS-WPgpU0-o_ZeyWoWs/gviz/tq?sheet=Sheet1")
+/*fetch("https://docs.google.com/spreadsheets/d/1oiQXvLxJO8WXE9OADI4Ss1_znS-WPgpU0-o_ZeyWoWs/gviz/tq?sheet=Sheet1")
 .then(response => response.text())
 .then(data => {
     let questions = data.split("setResponse(")[1].slice(0,this.length - 2);
@@ -44,11 +44,8 @@ fetch("https://docs.google.com/spreadsheets/d/1oiQXvLxJO8WXE9OADI4Ss1_znS-WPgpU0
             }
         }
     }
-    console.log(pqbank.length);
-    console.log(pqbank[0].q);
-    console.log(pqbank[0].a);
 })
-.catch(error => console.error(error));
+.catch(error => console.error(error));*/
 
 //select question types
 let topicselect = document.getElementsByClassName("topicselect");
@@ -102,6 +99,22 @@ function clickybutton() {
                 topic = formulas;
                 break;
             case "pqbank":
+                fetch("https://docs.google.com/spreadsheets/d/1oiQXvLxJO8WXE9OADI4Ss1_znS-WPgpU0-o_ZeyWoWs/gviz/tq?sheet=Sheet1")
+                .then(response => response.text())
+                .then(data => {
+                    let questions = data.split("setResponse(")[1].slice(0,this.length - 2);
+                    questions = JSON.parse(questions);
+                    rownum = questions.table.rows.length;
+                    colnum = questions.table.cols.length;
+                    for(i = 0; i < colnum; i+=2) {
+                        for(j = 0; j < rownum; j++) {
+                            if(questions.table.rows[j].c[i] && questions.table.rows[j].c[i].v){
+                                pqbank.push(new info(questions.table.rows[j].c[i].v, questions.table.rows[j].c[i+1].v));
+                            }
+                        }
+                    }
+                })
+                .catch(error => console.error(error));
                 topic = pqbank;
                 break;
         }
@@ -177,9 +190,15 @@ if (document.getElementById("start-order")) {
 
 if (document.getElementById("showoptions")) {
     document.getElementById("showoptions").addEventListener("click", () => {
-        document.getElementById("showoptions").style.color = "rebeccapurple";
-        document.getElementById("showoptions").style.backgroundColor = "white";
-        document.getElementById("MC").style.display = "inline";
+        if(document.getElementById("showoptions").style.color == "white") {
+            document.getElementById("showoptions").style.color = "rebeccapurple";
+            document.getElementById("showoptions").style.backgroundColor = "white";
+            document.getElementById("MC").style.display = "inline";
+        } else {
+            document.getElementById("showoptions").style.color = "white";
+            document.getElementById("showoptions").style.backgroundColor = "rebeccapurple";
+            document.getElementById("MC").style.display = "none";
+        }
     })
 }
 
@@ -250,12 +269,9 @@ function checkmcq() {
         this.style.backgroundColor = "green";
         setTimeout(mcqreset, 1000);
     } else {
-        console.log("marked as incorrect");
-        console.log("questions done before execution: " + questionsdone);
         this.style.backgroundColor = "red";
         for (i=0;i<topic.length;i++) {
             if(topic[i].q == document.getElementById("qask").innerText) {
-                console.log("question matches question in array");
                 qredo = i;
             }
         }
@@ -264,7 +280,6 @@ function checkmcq() {
                 questionsdone.splice(i, 1);
             }
         }
-        console.log("questions done after execution: " + questionsdone);
     }
 }
 
