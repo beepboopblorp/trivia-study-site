@@ -10,22 +10,16 @@
 </head>
 
 <body>
+  <div id="loading" style="display: none;">
+      <img src="loading_gif.svg" style="height: 50%; position: absolute; top: 25%; left: 25%;">
+      <p style="color: white; font-size: xx-large; position: absolute; top: 45%; right: 35%;">LOADING...</p>
+  </div>
   <div id="prestart">
     <h1>Study Site</h1>
     <p> Choose Topic: </p>
-    <button class="topicselect" value="statenumbers"> State Numbers </button>
-    <button class="topicselect" value="statedates"> State Dates </button>
-    <button class="topicselect" value="vitamins"> Vitamins </button>
-    <button class="topicselect" value="heraldry"> Heraldry Colors </button>
-    <button class="topicselect" value="statethings"> State Things </button>
-    <button class="topicselect" value="keys"> Key Signatures </button>
-    <button class="topicselect" value="alloys"> Alloys </button>
-    <button class="topicselect" value="schemes"> Color Schemes </button>
-    <button class="topicselect" value="operas"> Orchestral Compositions </button>
-    <button class="topicselect" value="formulas"> Physics Formulas </button>
-    <button class="topicselect" value="latin"> Latin Phrases </button>
-    <button class="topicselect" value="tech"> Tech Acronyms </button>
-    <button class="topicselect" value="pqbank"> Past Question Bank </button>
+    <div id="choosetopic">
+      <button class="topicselect" value="pqbank"> Past Question Bank </button>
+    </div>
     <br>
     <div id="choosetype">
       <p> Choose Question Type: </p>

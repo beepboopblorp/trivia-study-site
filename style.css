@@ -36,7 +36,7 @@ button:hover {
     color: rebeccapurple;
 }
 
-#choosetype, #endchoose, #questionthings, #start-random, #start-order, #endofgame {
+#prestart, #choosetype, #endchoose, #questionthings, #start-random, #start-order, #endofgame {
     display: none;
 }
 
@@ -45,4 +45,8 @@ button:hover {
     margin-right: 2.5%;
     margin-top: 5%;
     margin-bottom: 2.5%;
+}
+
+#loading * {
+    display: inline-block;
 }
