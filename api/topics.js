@@ -25,7 +25,8 @@ export default async function handler(req, res) {
                 temp = data.substring(0, data.indexOf('\n'));
             }
             do {
-                let question = answer = "";
+                let question = "";
+                let answer = "";
                 if (temp.substring(0, temp.indexOf('\t')) != "") {
                     question = temp.substring(0, temp.indexOf('\t'));
                     temp = temp.substring(temp.indexOf('\t') + 1);
