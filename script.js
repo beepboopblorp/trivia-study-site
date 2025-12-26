@@ -393,3 +393,11 @@ function beginagain() {
     document.getElementById("endofgame").style.display = "none";
     document.getElementById("prestart").style.display = "inline";
 }
+
+if(document.getElementById('endgame')) {
+    document.getElementById('endgame').addEventListener('click', () => {
+        document.getElementById("prestart").style.display = "none";
+        document.getElementById("questionthings").style.display = "none";
+        document.getElementById("endofgame").style.display = "inline";
+    })
+}
