@@ -2,6 +2,7 @@ const spreadsheet_id = '1oiQXvLxJO8WXE9OADI4Ss1_znS-WPgpU0-o_ZeyWoWs';
 
 export default async function handler(req, res) {
     try {
+        res.setHeader('Access-Control-Allow-Origin', '*');
         let questions = [];
         let response = await fetch(`https://docs.google.com/spreadsheets/d/${spreadsheet_id}/export?gid=0&format=tsv`);
         let data = await response.text();
