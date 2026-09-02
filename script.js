@@ -250,6 +250,7 @@ function mcqreset() {
     } else if (endingtype == "order") {
         order_gameplay();
     }
+    qredo = "";
 }
 
 for (let i = 0; i < 4; i++) {
@@ -261,17 +262,13 @@ for (let i = 0; i < 4; i++) {
 function checkmcq() {
     if (this.innerText == topic[randq].a) {
         this.style.backgroundColor = "green";
+        if(qredo == "") questionsdone.push(randq);
         setTimeout(mcqreset, 1000);
     } else {
         this.style.backgroundColor = "red";
         for (i=0;i<topic.length;i++) {
             if(topic[i].q == document.getElementById("qask").innerText) {
                 qredo = i;
-            }
-        }
-        for(i=0;i<questionsdone.length;i++){
-            if(questionsdone[i] == qredo) {
-                questionsdone.splice(i, 1);
             }
         }
     }
@@ -292,6 +289,7 @@ function checksaq() {
     if (document.getElementById("saqans").value == topic[randq].a) {
         document.getElementById("statecorrect").style.color = "green";
         document.getElementById("statecorrect").innerText = "CORRECT";
+        if (ic == 0) questionsdone.push(randq);
         setTimeout(saqreset, 1000);
     } else {
         document.getElementById("statecorrect").style.color = "red";
@@ -329,10 +327,16 @@ function order_gameplay() {
     document.getElementById("MC").style.display = "none";
     document.getElementById("showoptions").style.color = "white";
     document.getElementById("showoptions").style.backgroundColor = "rebeccapurple";
+
+    if (clickedtopic == "pqbank") {
+        lastnum = lastten;
+    } else {
+        lastnum = lastfive;
+    }
     
     do {
         randq = Math.floor(Math.random() * topic.length);
-        if (questionsdone.includes(randq)) {
+        if (questionsdone.includes(randq) || (lastnum.includes(randq) && (topic.length - questionsdone.length > lastnum.length))) {
             acceptableq = false;
             if (questionsdone.length == topic.length) {
                 document.getElementById("prestart").style.display = "none";
@@ -342,7 +346,8 @@ function order_gameplay() {
             }
         } else {
             acceptableq = true;
-            questionsdone.push(randq);
+            lastnum.push(randq);
+            lastnum.splice(0, 1);
         }
     } while (!acceptableq)
     
